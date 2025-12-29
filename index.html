@@ -1,1 +1,291 @@
-yapım aşamasındadır. 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kazmaz & Yalçın Hukuk Bürosu | Yapım Aşamasında</title>
+
+  <meta name="description" content="Kazmaz & Yalçın Hukuk Bürosu web sitesi yapım aşamasındadır. İletişim bilgilerimiz aşağıdadır." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#0b0f19;
+      --bg2:#0f172a;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#f1f5f9;
+      --muted:#cbd5e1;
+      --accent:#8aa6ff;
+      --accent2:#4fd1c5;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(138,166,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 30%, rgba(79,209,197,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* PNG Background Logo (Watermark) */
+    .bg-logo{
+      position: fixed;
+      inset: 0;
+      background: url("assets/kazmazlogo.png") no-repeat center;
+      background-size: contain;   /* ekrana sığdır */
+      opacity: 0.10;              /* görünürlük */
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(0.4px);
+    }
+    @media (max-width: 768px){
+      .bg-logo{
+        opacity: 0.07;
+      }
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      position: relative;
+      z-index: 1; /* watermark üstünde */
+    }
+
+    .card{
+      width:min(980px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(8px);
+    }
+
+    .inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+    }
+    @media (max-width: 860px){
+      .inner{grid-template-columns:1fr}
+    }
+
+    .left, .right{ padding:44px 44px; }
+    @media (max-width: 860px){
+      .left, .right{padding:32px 26px}
+    }
+
+    .brand{ margin-bottom:18px; }
+    .brand h1{
+      margin:0;
+      font-size: clamp(20px, 2.6vw, 28px);
+      letter-spacing:.2px;
+      line-height:1.2;
+    }
+    .tag{
+      margin:8px 0 0;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .headline{
+      margin:18px 0 12px;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.08;
+      font-weight:700;
+    }
+    .headline span{
+      background: linear-gradient(90deg, var(--accent), #c7d2fe, var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size: clamp(14px, 1.5vw, 16px);
+      line-height:1.8;
+      max-width: 66ch;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(138,166,255,.26), rgba(79,209,197,.18));
+      border-color: rgba(138,166,255,.35);
+    }
+
+    .right{
+      border-left:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+    }
+    @media (max-width: 860px){
+      .right{border-left:none; border-top:1px solid rgba(255,255,255,.10)}
+    }
+
+    .boxTitle{
+      margin:0 0 12px;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.78);
+    }
+
+    .info{ display:grid; gap:12px; margin-top:10px; }
+
+    .row{
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius:14px;
+    }
+
+    .label{
+      font-size:11px;
+      color:rgba(255,255,255,.70);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .val{
+      font-size:15px;
+      color:var(--text);
+      line-height:1.55;
+      word-break:break-word;
+    }
+
+    .val a{
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .footer{
+      padding:16px 22px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.60);
+      font-size:12px;
+    }
+    .footer a{
+      color: rgba(255,255,255,.72);
+      text-decoration:none;
+    }
+    .footer a:hover{ text-decoration:underline; }
+  </style>
+</head>
+
+<body>
+  <!-- Background logo watermark -->
+  <div class="bg-logo" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="inner">
+        <section class="left" aria-label="Bilgilendirme">
+          <div class="brand">
+            <h1>Kazmaz &amp; Yalçın Hukuk Bürosu</h1>
+            <div class="tag">Web Sitesi Yapım Aşamasında</div>
+          </div>
+
+          <div class="headline">
+            Web sitemiz <span>güncellenmektedir</span>.
+          </div>
+
+          <p class="sub">
+            İnternet sitemizi yeniliyoruz. Bu süreçte bizimle aşağıdaki iletişim kanalları üzerinden
+            irtibata geçebilirsiniz.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="mailto:info@kazmaz.av.tr">E-posta Gönder</a>
+            <a class="btn" href="tel:+902523639988">Telefon ile Ara</a>
+            <a class="btn" target="_blank" rel="noopener noreferrer"
+               href="https://www.google.com/maps/search/?api=1&query=Yeni%2C%20Bitez%2C%20Adliye%20Cd.%20No%3A%2022%2C%2048480%20Bodrum%2FMu%C4%9Fla">
+              Haritada Aç
+            </a>
+          </div>
+        </section>
+
+        <aside class="right" aria-label="İletişim">
+          <p class="boxTitle">İletişim Bilgileri</p>
+
+          <div class="info">
+            <div class="row">
+              <div class="label">Adres</div>
+              <div class="val">Yeni, Bitez, Adliye Cd. No: 22, 48480 Bodrum/Muğla</div>
+            </div>
+
+            <div class="row">
+              <div class="label">Telefon</div>
+              <div class="val"><a href="tel:+902523639988">(0252) 363 99 88</a></div>
+            </div>
+
+            <div class="row">
+              <div class="label">E-posta</div>
+              <div class="val"><a href="mailto:info@kazmaz.av.tr">info@kazmaz.av.tr</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <div>© 2025 Kazmaz &amp; Yalçın Hukuk Bürosu</div>
+        <div>
+          Tasarım &amp; geliştirme:
+          <a href="https://risicreative.com" target="_blank" rel="nofollow noopener noreferrer">Risi Creative</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
