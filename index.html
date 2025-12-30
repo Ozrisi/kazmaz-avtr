@@ -48,12 +48,11 @@
 
     .logo-container img {
       width: 100%;
-      /* GÜNCELLEME: Logo boyutu büyütüldü (280px -> 450px) */
       max-width: 450px; 
       height: auto;
       object-fit: contain;
       filter: brightness(0) invert(1); 
-      opacity: 0.95; /* Biraz daha belirgin olsun diye opaklığı artırdım */
+      opacity: 0.95;
     }
 
     .contact-details {
@@ -94,6 +93,7 @@
 
     .content-wrapper {
       max-width: 550px;
+      width: 100%; /* Haritanın düzgün oturması için */
       animation: fadeInUp 1s ease-out;
     }
 
@@ -127,13 +127,14 @@
       font-size: 18px;
       color: var(--text-grey);
       line-height: 1.7;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       font-weight: 300;
     }
 
     .action-buttons {
       display: flex;
       gap: 16px;
+      margin-bottom: 32px; /* Harita ile butonlar arasına boşluk */
     }
 
     .btn {
@@ -143,6 +144,7 @@
       font-weight: 500;
       font-size: 15px;
       transition: all 0.3s ease;
+      white-space: nowrap; /* Mobilde buton yazısı kırılmasın */
     }
 
     .btn-primary {
@@ -212,7 +214,7 @@
         gap: 20px;
       }
       .logo-container img {
-        max-width: 280px; /* Mobilde yine küçük kalsın, taşmasın */
+        max-width: 280px; 
       }
       .content-section {
         width: 100%;
@@ -251,7 +253,7 @@
     <div class="contact-details">
       <div class="contact-item">
         <h4>ADRES</h4>
-        <p>Yeni, Bitez, Adliye Cd. No: 22<br>48480 Bodrum / Muğla</p>
+        <p>Bitez, Yeni Adliye Cd. No: 22<br>48480 Bodrum / Muğla</p>
       </div>
       <div class="contact-item">
         <h4>İLETİŞİM</h4>
@@ -282,13 +284,22 @@
         <a href="mailto:info@kazmaz.av.tr" class="btn btn-secondary">E-posta Gönder</a>
       </div>
       
-      <div style="margin-top: 20px;">
-        <a href="https://www.google.com/maps/search/?api=1&query=Yeni+Bitez+Adliye+Cd+No+22+Bodrum" target="_blank" style="color: #64748b; font-size: 13px; text-decoration: underline;">Ofis konumuna git →</a>
+      <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.1762315099454!2d27.377317789118493!3d37.0504382818252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6d97448d93df%3A0x807ed1ee92599932!2sAvukat%20Esra%20Hasano%C4%9Flu%20Kazmaz!5e1!3m2!1str!2str!4v1767114977857!5m2!1str!2str" 
+          width="100%" 
+          height="280" 
+          style="border:0; display: block;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
+
     </div>
 
     <div class="footer-signature">
-      <a href="https://www.risicreative.com" target="_blank">Web Tasarım: Risi Creative</a>
+      <a href="https://www.risicreative.com" target="_blank"> © Risi Creative</a>
     </div>
   </main>
 
