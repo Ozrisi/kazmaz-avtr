@@ -5,7 +5,12 @@
   <title>Kazmaz & Yalçın Hukuk Bürosu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <meta name="description" content="Kazmaz & Yalçın Hukuk Bürosu - Hukuki mükemmeliyet, dijital dünyada da sizinle. Web sitemiz yenileniyor.">
+  <meta property="og:title" content="Kazmaz & Yalçın Hukuk Bürosu">
+  <meta property="og:description" content="Bodrum merkezli hukuk ve danışmanlık hizmetleri. Web sitemiz yapım aşamasındadır.">
+  <meta property="og:image" content="assets/kazmazlogo.png"> <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -13,6 +18,7 @@
       --accent-gold: #c6a87c;
       --text-grey: #64748b;
       --bg-light: #f8fafc;
+      --whatsapp-green: #25D366;
     }
 
     * { box-sizing: border-box; }
@@ -24,6 +30,77 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
+    }
+
+    /* === WHATSAPP BUTONU === */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 90px;
+      right: 40px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-icon {
+      width: 35px;
+      height: 35px;
+      fill: white;
+    }
+
+    /* === DİL SEÇENEKLERİ === */
+    .language-switcher {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #cbd5e1;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    .lang-btn.active {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .lang-separator {
+      color: #e2e8f0;
+      font-size: 12px;
+      user-select: none;
     }
 
     /* === SOL TARAF === */
@@ -95,7 +172,12 @@
       max-width: 550px;
       width: 100%;
       animation: fadeInUp 1s ease-out;
+      max-height: 100vh; 
+      overflow-y: auto;
+      scrollbar-width: none; 
+      padding-top: 40px; 
     }
+    .content-wrapper::-webkit-scrollbar { display: none; }
 
     .status-badge {
       display: inline-block;
@@ -124,9 +206,9 @@
     }
 
     p.lead {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-grey);
-      line-height: 1.7;
+      line-height: 1.6;
       margin-bottom: 32px;
       font-weight: 300;
     }
@@ -134,15 +216,15 @@
     .action-buttons {
       display: flex;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .btn {
-      padding: 16px 32px;
+      padding: 14px 28px;
       border-radius: 2px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 15px;
+      font-size: 14px;
       transition: all 0.3s ease;
       white-space: nowrap;
     }
@@ -170,25 +252,43 @@
       background: #fff;
     }
 
+    /* === HARİTA === */
+    .map-container {
+      width: 100%; 
+      border-radius: 8px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      height: 220px;
+      margin-bottom: 60px; 
+    }
+
+    /* === FOOTER === */
+    .footer-copyright-left {
+      position: absolute;
+      bottom: 30px;
+      left: 40px; 
+      font-size: 11px;
+      color: #94a3b8; 
+      font-weight: 500;
+    }
+
     .footer-signature {
       position: absolute;
       bottom: 30px;
-      right: 40px;
-      font-size: 12px;
-      color: #94a3b8;
+      right: 40px; 
+      font-size: 11px;
+      color: #cbd5e1;
     }
 
     .footer-signature a {
-      color: var(--primary-dark);
+      color: #94a3b8;
       text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px dotted #cbd5e1;
+      font-weight: 500;
       transition: color 0.2s;
     }
     
     .footer-signature a:hover {
-      color: var(--accent-gold);
-      border-bottom-style: solid;
+      color: var(--primary-dark);
     }
 
     /* === MOBİL === */
@@ -204,6 +304,13 @@
         align-items: center;
         text-align: center;
       }
+      
+      .language-switcher {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
       .contact-details {
         border-left: none;
         padding-left: 0;
@@ -218,22 +325,49 @@
       }
       .content-section {
         width: 100%;
-        padding: 40px 24px 80px 24px;
+        padding: 40px 24px 60px 24px;
+        display: block;
+      }
+      .content-wrapper {
+        max-height: none;
+        overflow-y: visible;
       }
       h1 { font-size: 32px; }
-      p.lead { font-size: 16px; }
+      p.lead { font-size: 15px; }
       .action-buttons {
         flex-direction: column;
         width: 100%;
       }
       .btn { width: 100%; text-align: center; }
       
+      .footer-copyright-left,
       .footer-signature {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
         width: 100%;
         text-align: center;
-        left: 0;
-        right: 0;
+      }
+      
+      .footer-copyright-left {
+         margin-top: 30px; 
+         margin-bottom: 8px; 
+      }
+      
+      .footer-signature {
+         margin-bottom: 20px; 
+      }
+
+      .whatsapp-float {
         bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+      }
+      .whatsapp-icon {
+        width: 28px;
+        height: 28px;
       }
     }
 
@@ -245,6 +379,12 @@
 </head>
 <body>
 
+  <a href="https://wa.me/905539475923" class="whatsapp-float" target="_blank" title="WhatsApp ile İletişime Geç">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.155.931 2.594.746 3.04.7.495-.05 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
   <aside class="brand-section">
     <div class="logo-container">
       <img src="assets/kazmazlogo.png" alt="Kazmaz & Yalçın Hukuk">
@@ -252,11 +392,11 @@
 
     <div class="contact-details">
       <div class="contact-item">
-        <h4>ADRES</h4>
+        <h4 data-lang="address_title">ADRES</h4>
         <p>Bitez, Yeni Adliye Cd. No: 22<br>48480 Bodrum / Muğla</p>
       </div>
       <div class="contact-item">
-        <h4>İLETİŞİM</h4>
+        <h4 data-lang="contact_title">İLETİŞİM</h4>
         <p>
           T: (0252) 363 99 88<br>
           E: info@kazmaz.av.tr
@@ -266,29 +406,38 @@
   </aside>
 
   <main class="content-section">
+    
+    <div class="language-switcher">
+      <button class="lang-btn active" onclick="setLanguage('tr')">TR</button>
+      <span class="lang-separator">|</span>
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <span class="lang-separator">|</span>
+      <button class="lang-btn" onclick="setLanguage('de')">DE</button>
+    </div>
+
     <div class="content-wrapper">
-      <span class="status-badge">Web Sitesi Yenileniyor</span>
+      <span class="status-badge" data-lang="badge">Web Sitesi Yenileniyor</span>
       
-      <h1>
+      <h1 data-lang="headline">
         Hukuki mükemmeliyet,<br>
         <span>dijital dünyada da</span><br>
         sizinle olacak.
       </h1>
       
-      <p class="lead">
+      <p class="lead" data-lang="lead">
         Kazmaz & Yalçın Hukuk Bürosu olarak web sitemizi daha iyi bir deneyim sunmak adına güncelliyoruz. Bu süreçte tüm hukuki talepleriniz için bize ulaşabilirsiniz.
       </p>
 
       <div class="action-buttons">
-        <a href="tel:+902523639988" class="btn btn-primary">Bizi Arayın</a>
-        <a href="mailto:info@kazmaz.av.tr" class="btn btn-secondary">E-posta Gönder</a>
+        <a href="tel:+902523639988" class="btn btn-primary" data-lang="btn_call">Bizi Arayın</a>
+        <a href="mailto:info@kazmaz.av.tr" class="btn btn-secondary" data-lang="btn_email">E-posta Gönder</a>
       </div>
       
-      <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+      <div class="map-container">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1592.1502247228916!2d27.381880179279545!3d37.050322795102375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6d97448d93df%3A0x807ed1ee92599932!2sAvukat%20Esra%20Hasano%C4%9Flu%20Kazmaz!5e0!3m2!1str!2str!4v1767116470078!5m2!1str!2str" 
           width="100%" 
-          height="280" 
+          height="100%" 
           style="border:0; display: block;" 
           allowfullscreen="" 
           loading="lazy" 
@@ -298,10 +447,65 @@
 
     </div>
 
+    <div class="footer-copyright-left" data-lang="copyright">
+      Kazmaz & Yalçın Hukuk Bürosu | Tüm Hakkı Saklıdır.
+    </div>
+
     <div class="footer-signature">
       <a href="https://www.risicreative.com" target="_blank"> © Risi Creative</a>
     </div>
   </main>
+
+  <script>
+    const translations = {
+      tr: {
+        address_title: "ADRES",
+        contact_title: "İLETİŞİM",
+        badge: "Web Sitesi Yenileniyor",
+        headline: "Hukuki mükemmeliyet,<br><span>dijital dünyada da</span><br>sizinle olacak.",
+        lead: "Kazmaz & Yalçın Hukuk Bürosu olarak web sitemizi daha iyi bir deneyim sunmak adına güncelliyoruz. Bu süreçte tüm hukuki talepleriniz için bize ulaşabilirsiniz.",
+        btn_call: "Bizi Arayın",
+        btn_email: "E-posta Gönder",
+        copyright: "Kazmaz & Yalçın Hukuk Bürosu | Tüm Hakkı Saklıdır."
+      },
+      en: {
+        address_title: "ADDRESS",
+        contact_title: "CONTACT",
+        badge: "Website Renewing",
+        headline: "Legal excellence<br><span>will be with you</span><br>in the digital world.",
+        lead: "As Kazmaz & Yalçın Law Firm, we are updating our website to provide a better experience. You can contact us for all your legal requests during this process.",
+        btn_call: "Call Us",
+        btn_email: "Send Email",
+        copyright: "Kazmaz & Yalçın Law Firm | All Rights Reserved."
+      },
+      de: {
+        address_title: "ADRESSE",
+        contact_title: "KONTAKT",
+        badge: "Webseite wird erneuert",
+        headline: "Juristische Exzellenz<br><span>wird Sie auch</span><br>in der digitalen Welt begleiten.",
+        lead: "Als Anwaltskanzlei Kazmaz & Yalçın aktualisieren wir unsere Website, um Ihnen ein besseres Erlebnis zu bieten. Für alle rechtlichen Anfragen können Sie uns jederzeit kontaktieren.",
+        btn_call: "Rufen Sie uns an",
+        btn_email: "E-Mail Senden",
+        copyright: "Kazmaz & Yalçın Anwaltskanzlei | Alle Rechte vorbehalten."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText.toLowerCase() === lang) {
+          btn.classList.add('active');
+        }
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
